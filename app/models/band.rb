@@ -11,5 +11,9 @@ class Band
 
     def self.all
         @@all
+    end  
+
+    def concerts
+        Concert.all.select { |concert| concert.band == self }
     end
 end
