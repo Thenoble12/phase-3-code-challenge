@@ -14,4 +14,13 @@ attr_reader :band, :venue
     def self.all
         @@all
     end    
+
+    def hometown_show?
+        @band.hometown == @venue.city
+    end
+
+    def introduction
+        "Hello #{Venue.venue.city}!!!!!, we are #{Band.band.name}"
+    end
+
 end
