@@ -1,5 +1,6 @@
 require_relative '../config/environment.rb'
 require 'json'
+require 'set'
 
 def reload
   load 'config/environment.rb'
