@@ -1,6 +1,5 @@
-class Concert
-
-attr_reader :band, :venue
+class Concert 
+attr_reader :band, :venue, :date
 
     @@all = []
     
@@ -15,12 +14,11 @@ attr_reader :band, :venue
         @@all
     end    
 
-    def hometown_show?
+    def hometown_show?                
         @band.hometown == @venue.city
     end
 
-    def introduction
-        "Hello #{Venue.venue.city}!!!!!, we are #{Band.band.name}"
-    end
-
+    def introduction  
+        "Hello #{@venue.title}!!!!!, we are #{@band.name} and we're from #{@band.hometown}"
+    end  
 end

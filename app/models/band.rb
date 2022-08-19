@@ -11,9 +11,20 @@ class Band
 
     def self.all
         @@all
-    end  
+    end
+    
+    def venues        
+        result = Concert.all.select { |concert| concert.band == self }
+        final = result.map do |concert|
+            concert.venue.title            
+        end             
+    end
 
-    def concerts
-        Concert.all.select { |concert| concert.band == self }
+    def play_in_venue(venue, date)
+        Concert.new(date, self, venue)
+    end   
+
+    def all_introductions
+        Concert.all.select { |concert| concert.band == self }.map { |concert| concert.introduction }       
     end
 end
