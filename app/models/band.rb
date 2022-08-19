@@ -1,3 +1,5 @@
+require "set"
+
 class Band
     attr_accessor :name
     attr_reader :hometown
@@ -18,6 +20,7 @@ class Band
         final = result.map do |concert|
             concert.venue.title            
         end             
+        final = final.to_set.to_a
     end
 
     def play_in_venue(venue, date)

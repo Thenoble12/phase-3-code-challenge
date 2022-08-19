@@ -18,7 +18,7 @@ class Venue
     end
     
     def bands
-        Band.all.select { |band| band.venues == self }
+        Band.all.select { |band| band.venues.include?(self.title) }
     end
 
     def concert_on_date(date)            
@@ -38,14 +38,11 @@ class Venue
             concerts.each { |concert| concert.band == bands[i] ? current += 1 : nil }                               
 
             if (max <  current)  
-                max = current
-                puts current
-                puts max
-                result = bands[i]
-                puts result
-                # binding.pry   
+                max = current               
+                result = bands[i]   
             end             
+             i += 1
         end
-        result
+        result.name
     end   
 end
