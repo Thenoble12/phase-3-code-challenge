@@ -3,6 +3,7 @@ require "set"
 class Band
     attr_accessor :name
     attr_reader :hometown
+    
     @@all = []
 
     def initialize(name, hometown)
